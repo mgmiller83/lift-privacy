@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" style="color-scheme: dark;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <title>LIFT Gym — Privacy Policy &amp; Health Connect Disclosure</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #000000;
+        --surface: #0b0b0e;
+        --surface-2: #141418;
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #f4f4f5;
+        --muted: #a1a1aa;
+        --amber: #eab308;
+        --emerald: #34d399;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+        line-height: 1.6;
+        padding: 24px 16px 48px;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px 24px;
+      }
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--emerald);
+        margin-bottom: 6px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 26px;
+        line-height: 1.25;
+      }
+      .meta {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      h2 {
+        margin: 24px 0 8px;
+        font-size: 17px;
+        color: var(--text);
+      }
+      p, li {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+      strong {
+        color: var(--text);
+      }
+      .callout {
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--emerald);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin: 16px 0;
+      }
+      a {
+        color: var(--amber);
+      }
+      .footer {
+        margin-top: 28px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">LIFT Gym · Household Strength &amp; Hypertrophy</div>
+      <h1>Privacy Policy &amp; Health Connect Disclosure</h1>
+      <div class="meta">
+        Package: <code>com.lift.householdgym</code> · Last updated: May 2026
+      </div>
+
+      <div class="callout">
+        <p style="margin: 0;">
+          <strong>Local-First Guarantee:</strong> LIFT stores your workout history,
+          strength baselines, body weight measurements, profiles, and basement gym
+          equipment strictly on your device using local IndexedDB and browser storage.
+          The developer operates no analytics servers, no advertising SDKs, and no
+          central backend database collecting your personal data.
+        </p>
+      </div>
+
+      <h2>1. Android Health Connect Permissions (Write-Only)</h2>
+      <p>
+        LIFT integrates optionally with Android Health Connect on your device so
+        completed workouts can appear in Google Fit, Fitbit, or Strava. LIFT uses
+        <strong>write-only</strong> permissions and does <strong>not</strong> request
+        or read health records written by other apps:
+      </p>
+      <ul>
+        <li>
+          <strong>Write Exercise Sessions (<code>WRITE_EXERCISE</code>):</strong>
+          Saves workout start/end times, exercise type, workout title, and set summary notes.
+        </li>
+        <li>
+          <strong>Write Total Calories Burned (<code>WRITE_TOTAL_CALORIES_BURNED</code>):</strong>
+          Saves estimated workout calorie expenditure computed from session work or heart rate.
+        </li>
+        <li>
+          <strong>Write Heart Rate Samples (<code>WRITE_HEART_RATE</code>):</strong>
+          Saves optional heart-rate time-series points recorded during your session via a paired Bluetooth heart-rate wearable or manual summary.
+        </li>
+      </ul>
+      <p>
+        Health Connect records are written directly to Android's encrypted on-device
+        Health Connect store only when initiated or enabled by you. LIFT never sells,
+        rents, or uses Health Connect data for advertising. You may revoke Health Connect
+        permissions at any time in <strong>Android Settings &rarr; Security &amp; privacy &rarr; Health Connect &rarr; App permissions</strong>.
+      </p>
+
+      <h2>2. Bluetooth Heart Rate Monitor (<code>neverForLocation</code>)</h2>
+      <p>
+        If you connect a smartwatch or chest strap over Bluetooth Low Energy (GATT
+        Heart Rate Profile <code>0x180D</code>), LIFT requests nearby Bluetooth scan/connect
+        permissions strictly with the <code>neverForLocation</code> declaration
+        (location permission is capped at Android 11 / API 30 and disabled on Android 12+).
+        LIFT never tracks or stores GPS coordinates or physical location.
+      </p>
+
+      <h2>3. Foreground Rest Timer &amp; Exact Alarms</h2>
+      <p>
+        While a rest countdown runs between sets, LIFT uses an Android foreground
+        service notification (<code>specialUse</code>) and optional exact-alarm
+        scheduling so rest alerts chime accurately even if you switch apps.
+      </p>
+
+      <h2>4. Optional User-Configured External Connections</h2>
+      <p>
+        All third-party integrations are disabled by default and transmit data over
+        HTTPS directly to services you explicitly configure:
+      </p>
+      <ul>
+        <li>
+          <strong>Google Gemini AI Coach (Optional):</strong> Uses your own Gemini
+          API key stored locally to generate workouts or training debriefs.
+        </li>
+        <li>
+          <strong>Strava (Optional):</strong> Uses your own Strava OAuth credentials to
+          upload completed workout activities directly to your Strava account.
+        </li>
+        <li>
+          <strong>Google Sheets (Optional):</strong> Sends workout rows directly to your
+          personal Google Apps Script web app URL.
+        </li>
+        <li>
+          <strong>Household Backup Vault (Optional):</strong> Syncs profile backups directly
+          to your own Supabase or custom HTTPS webhook endpoint (secret OAuth and API
+          tokens are excluded from exported vault backups).
+        </li>
+        <li>
+          <strong>Exercise Guide Clips (Optional):</strong> Opening an instructional clip
+          loads privacy-enhanced YouTube embeds (<code>youtube-nocookie.com</code>) or
+          external search links only upon tap.
+        </li>
+      </ul>
+
+      <h2>5. Data Retention &amp; Deletion</h2>
+      <p>
+        Because your training ledger resides locally on your device, you have complete
+        control: you can export JSON/CSV backups, delete any athlete profile or workout
+        inside LIFT, revoke external integration permissions in the <strong>Sync</strong>
+        tab or Android System Settings, or uninstall LIFT / clear app storage to
+        permanently erase all local records.
+      </p>
+
+      <div class="footer">
+        <span>Developer: <strong>mgmiller83</strong> &middot; App: <code>com.lift.householdgym</code></span>
+        <span>Privacy inquiries: <a href="https://github.com/mgmiller83/lift-privacy/issues" target="_blank" rel="noreferrer">github.com/mgmiller83/lift-privacy/issues</a></span>
+      </div>
+    </main>
+  </body>
+</html>
