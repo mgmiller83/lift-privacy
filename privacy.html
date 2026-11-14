@@ -162,12 +162,31 @@
         scheduling so rest alerts chime accurately even if you switch apps.
       </p>
 
-      <h2>4. Optional User-Configured External Connections</h2>
+      <h2>4. Optional User-Configured Backups &amp; External Connections</h2>
       <p>
-        All third-party integrations are disabled by default and transmit data strictly
-        over HTTPS directly to services you explicitly configure:
+        All cloud backup destinations and third-party integrations are disabled by default
+        and transmit data strictly over HTTPS directly to accounts or endpoints you
+        explicitly authorize:
       </p>
       <ul>
+        <li>
+          <strong>Google Drive App Data Backup (<code>https://www.googleapis.com/auth/drive.appdata</code>, Optional):</strong>
+          If you tap <strong>Connect Google Drive</strong>, LIFT requests access solely to
+          its private, app-specific App Data folder in your own Google Drive to save and
+          restore <code>LIFT_Household_Backup.json</code>. LIFT has zero access to any
+          other files, folders, Google Docs, or photos in your Drive. LIFT&apos;s use and
+          transfer of information received from Google APIs strictly adheres to the{' '}
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+          including the Limited Use requirements (used exclusively to back up and restore
+          your workout history inside LIFT; never sold, used for advertising, or shared
+          with third parties).
+        </li>
+        <li>
+          <strong>Local Phone Backup Folder (Optional):</strong> Using Android&apos;s Storage
+          Access Framework (<code>OpenDocumentTree</code>) or Chromium&apos;s File System
+          Access API, LIFT writes <code>LIFT_Household_Backup.json</code> strictly inside
+          the specific user-chosen folder.
+        </li>
         <li>
           <strong>Google Gemini AI Coach (Optional):</strong> Uses your own Gemini
           API key stored locally to generate workouts or training debriefs.
@@ -181,10 +200,10 @@
           personal HTTPS Google Apps Script web app URL.
         </li>
         <li>
-          <strong>Household Backup Vault (Optional):</strong> Syncs profile backups directly
-          to your own HTTPS Supabase or custom HTTPS webhook endpoint (secret OAuth
-          tokens, API keys, and Google Sheets webhook URLs are excluded from exported
-          profile backups).
+          <strong>Custom Supabase / Webhook Vault (Optional):</strong> Syncs profile backups
+          directly to your own HTTPS Supabase or custom HTTPS webhook endpoint (secret OAuth
+          tokens, API keys, and Google Sheets webhook URLs are redacted from all exported,
+          Drive, folder, and cloud backups).
         </li>
         <li>
           <strong>Exercise Guide Clips (Optional):</strong> Opening an instructional clip
@@ -197,9 +216,12 @@
       <p>
         Because your training ledger resides locally on your device, you have complete
         control: you can export JSON/CSV backups, delete any athlete profile or workout
-        inside LIFT, revoke external integration permissions in the <strong>Sync</strong>
-        tab or Android System Settings, or uninstall LIFT / clear app storage to
-        permanently erase all local records.
+        inside LIFT, disconnect Google Drive or revoke external permissions in the{' '}
+        <strong>Sync</strong> tab, your Google Account Permissions settings, or Android
+        System Settings, or uninstall LIFT / clear app storage to permanently erase all
+        local records. (Note: if you delete LIFT from your phone while Google Drive backup
+        is enabled, a copy remains safely stored in your own Google Drive App Data folder
+        until you disconnect or clear app data inside Google Drive Settings.)
       </p>
 
       <div class="footer">
